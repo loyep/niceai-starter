@@ -11,9 +11,7 @@ export { mySqlTable as tableCreator } from "./schema/_table";
 export * from "drizzle-orm";
 
 const psClient = new Client({
-  host: process.env.DB_HOST!,
-  username: process.env.DB_USERNAME!,
-  password: process.env.DB_PASSWORD!,
+  url: process.env.DATABASE_URL,
 });
 
 export const db = drizzle(psClient, { schema });
